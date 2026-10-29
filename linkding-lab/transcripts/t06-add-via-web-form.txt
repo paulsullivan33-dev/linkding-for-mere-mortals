@@ -1,0 +1,8 @@
+# 5. POST a new bookmark through the web form (local lab page, tags, unread)
+POST /bookmarks/new -> HTTP 302, redirect: http://127.0.0.1:8931/bookmarks
+# 6. POST a second bookmark with NO title (the background task is expected to fetch it)
+POST /bookmarks/new -> HTTP 302
+# 7. The list now (titles as stored, before the task runner runs)
+>Pangrams - Sentences That Use Every Letter<
+tides.html
+/bin/bash: line 1: ../venv/bin/python: No such file or directory

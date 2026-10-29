@@ -1,0 +1,4 @@
+$ python3.13 -m venv venv
+Python 3.13.18
+$ pip install (project dependencies, uwsgi and supervisor omitted - not needed to run the app itself)
+django 6.1.2

@@ -1,0 +1,26 @@
+# API token created on the integrations page (name: lab-script), shown once
+# 1. Create a bookmark through the REST API
+{"id":3,"url":"https://www.python.org","title":"Python.org","description":"The Python programming language home page.","notes":"","web_archive_snapshot_url":"https://web.archive.org/web/20261029185030/https://www.python.org","favicon_url":null,"preview_image_url":null,"is_archived":false,"unread":true,"shared":false,"tag_names":["docs","python"],"date_added":"2026-10-29T18:50:30.551336Z","date_modified":"2026-10-29T1
+# 2. List through the API
+count: 3
+3 | Python.org | docs,python | unread: True
+2 | (no title) | reference | unread: False
+1 | Pangrams - Sentences That Use Every Letter | language,reference | unread: True
+# 3. Search and tag filters
+q=python count: 1
+tag=language count: 3
+# 4. Fill bookmark 2 title via PATCH
+bookmark 2 title now: Reading a Tide Table
+# 5. Archive (mark read) bookmark 1 via the API archive endpoint
+POST /api/bookmarks/1/archive/ -> HTTP 204
+archived count: 1
+# 6. Tag search the way the API documents it: inside q as #tag
+q=#language count: 0
+unarchive bookmark 1 -> HTTP 204
+# 7. The same searches in the web UI
+1
+1
+settings.html:action="/settings/import"
+# 8. Repeat of q=#language after unarchiving bookmark 1: count 1.
+#    The earlier 0 was correct behaviour, not a bug: bookmark 1 was archived
+#    at that moment, and archived bookmarks leave the default list and search.

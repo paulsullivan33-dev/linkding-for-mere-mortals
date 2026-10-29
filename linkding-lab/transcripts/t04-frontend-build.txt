@@ -1,0 +1,10 @@
+$ npm ci  (frontend toolchain - esbuild only)
+
+added 13 packages in 7s
+$ npm run build
+
+  bookmarks/static/theme-dark.css  59.0kb
+
+⚡ Done in 16ms
+-rw-rw---- 1 root root 151828 Oct 29 18:47 bookmarks/static/bundle.js
+-rw-rw---- 1 root root  56303 Oct 29 18:47 bookmarks/static/theme-light.css

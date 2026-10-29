@@ -1,0 +1,27 @@
+site_name: Linkding for Mere Mortals
+site_description: A bookmark manager you run yourself. Saving links with titles, descriptions and tags in one small database, searching them in plain words, importing and exporting the standard browser bookmarks file, sharing chosen links in public, and driving the whole thing from a REST API, with the limits stated plainly.
+site_url: https://paulsullivan33-dev.github.io/linkding-for-mere-mortals/
+copyright: 'Part of <a href="https://paulsullivan33-dev.github.io/mere-mortals/">For Mere Mortals</a> · Text <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code MIT'
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What Linkding Is: what-linkding-is.md
+  - The Moving Parts: the-moving-parts.md
+  - Installing Linkding: installing-linkding.md
+  - Your First Bookmark: your-first-bookmark.md
+  - Tags and Search: tags-and-search.md
+  - Importing and Exporting: importing-and-exporting.md
+  - Sharing and Public Bookmarks: sharing-and-public-bookmarks.md
+  - The REST API: the-rest-api.md
+  - Snapshots and the Archive: snapshots-and-archives.md
+  - Recipes: recipes.md
+  - The Neighbours: the-neighbours.md
+  - Limits: limits.md
+  - Troubleshooting: troubleshooting.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md

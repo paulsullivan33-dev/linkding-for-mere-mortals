@@ -1,0 +1,14 @@
+$ mkdir data   # fresh clone has no data dir; the app expects data/db.sqlite3
+$ python manage.py migrate
+  Applying bookmarks.0052_apitoken... OK
+  Applying bookmarks.0053_migrate_api_tokens... OK
+  Applying bookmarks.0054_bookmarkbundle_filter_shared_and_more... OK
+  Applying sessions.0001_initial... OK
+$ DJANGO_SUPERUSER_PASSWORD=... python manage.py createsuperuser --noinput --username labadmin --email lab@example.org
+?: (staticfiles.W004) The directory '/home/hatch/workspace/linkding-lab-work/src/data/previews' in the STATICFILES_DIRS setting does not exist.
+Superuser created successfully.
+total 300
+drwxrwx--- 1 root root     46 Oct 29 18:47 .
+drwxrwx--- 1 root root    700 Oct 29 18:46 ..
+-rw-r----- 1 root root 266240 Oct 29 18:47 db.sqlite3
+-rw-r----- 1 root root  36864 Oct 29 18:46 tasks.sqlite3

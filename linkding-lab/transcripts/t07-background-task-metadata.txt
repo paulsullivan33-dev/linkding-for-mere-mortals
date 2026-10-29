@@ -1,0 +1,14 @@
+# 8. Rows in the SQLite database
+(1, 'http://127.0.0.1:8932/pangrams.html', 'Pangrams - Sentences That Use Every Letter', 1)
+(2, 'http://127.0.0.1:8932/tides.html', '', 0)
+tags: [('language',), ('reference',)]
+# 9. Run the background task worker for 20 seconds (manage.py run_huey)
+INFO 2026-10-29 18:48:11,059 consumer: Huey consumer started with 2 thread, PID 70524 at 2026-10-29 18:48:11.059797
+INFO 2026-10-29 18:48:11,060 consumer: Scheduler runs every 10 second(s).
+INFO 2026-10-29 18:48:11,060 consumer: Periodic tasks are enabled.
+INFO 2026-10-29 18:48:11,060 consumer: The following commands are available:
++ huey.contrib.djhuey.tasks_backend.djtasks.run
++ bookmarks.services.tasks._create_web_archive_snapshot_task
+# 10. Rows after the worker ran
+(1, 'http://127.0.0.1:8932/pangrams.html', 'Pangrams - Sentences That Use Every Letter', 'A short reference page about pangrams.')
+(2, 'http://127.0.0.1:8932/tides.html', '', '')

@@ -1,0 +1,34 @@
+# NOTE: the first token tried below was the RSS feed token from the same page,
+# which the API correctly rejected as invalid. The real API token flow is in t10.
+# 17. Create a bookmark through the REST API
+{"detail":"Invalid token."}
+# 18. List bookmarks through the API (ids, titles, tags)
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json,sys; d=json.load(sys.stdin); print('count:', d['count']); [print(b['id'], '|', b['title'] or '(no title)', '|', ','.join(b['tag_names'])) for b in d['results']]
+                                                             ~^^^^^^^^^
+KeyError: 'count'
+# 19. API search: q=python, and tag filter
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json,sys; d=json.load(sys.stdin); print('q=python count:', d['count'])
+                                                                      ~^^^^^^^^^
+KeyError: 'count'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json,sys; d=json.load(sys.stdin); print('tag=language count:', d['count'])
+                                                                          ~^^^^^^^^^
+KeyError: 'count'
+# 20. No token -> refused
+GET /api/bookmarks/ without token -> HTTP 401
+# 21. Fill bookmark 2 title via API PATCH
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json,sys; b=json.load(sys.stdin); print('bookmark 2 title now:', b['title'])
+                                                                            ~^^^^^^^^^
+KeyError: 'title'
+GET create-api-token -> HTTP 200
+name="csrfmiddlewaretoken"
+name="name"
+POST create-api-token -> HTTP 200
+value="4288b0c6d62779b5e48935f92cc3a81b647502e0"

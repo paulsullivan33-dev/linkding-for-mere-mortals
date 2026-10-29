@@ -1,0 +1,25 @@
+# 1. GET the login form, keep cookies, read the CSRF token
+csrf token: pprheSnVGqnI...
+# 2. POST the login (labadmin / LabPass!234)
+POST /login/ -> HTTP 302, redirect: http://127.0.0.1:8931/bookmarks
+# 3. GET the bookmark list while logged in
+GET /bookmarks -> HTTP 200
+<title>Bookmarks - Linkding</title>
+0
+# 4. GET the new-bookmark form and list its field names
+GET /bookmarks/new -> HTTP 200
+name="apple-mobile-web-app-capable"
+name="author"
+name="auto_close"
+name="csrfmiddlewaretoken"
+name="description"
+name="notes"
+name="robots"
+name="tag_string"
+name="theme-color"
+name="title"
+name="turbo-cache-control"
+name="turbo-prefetch"
+name="unread"
+name="url"
+name="viewport"

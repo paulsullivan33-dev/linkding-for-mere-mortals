@@ -1,0 +1,17 @@
+# 1. Import the Netscape file through Settings -> Import
+POST /settings/import -> HTTP 200
+# 2. The full list through the API after import
+count: 5
+1 | Pangrams - Sentences That Use Every Letter | language,reference | added: 2026-10-29
+2 | Reading a Tide Table | reference | added: 2026-10-29
+3 | Python.org | docs,python | added: 2026-10-29
+4 | Example Domain (example.org) | imported,reference | added: 2025-01-01
+5 | RFC Editor | docs,imported | added: 2025-01-02
+# 3. Export from Settings -> Export and read it back
+GET /settings/export -> HTTP 200, 1252 bytes
+<A HREF="http://127.0.0.1:8932/pangrams.html"
+<A HREF="http://127.0.0.1:8932/tides.html"
+<A HREF="https://www.python.org"
+<A HREF="https://example.org/"
+<A HREF="https://www.rfc-editor.org/"
+5

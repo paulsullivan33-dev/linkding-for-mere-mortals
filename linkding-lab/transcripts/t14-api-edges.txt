@@ -1,0 +1,13 @@
+# 1. Tags through the API
+tags: [('language', '2026-10-29'), ('reference', '2026-10-29'), ('docs', '2026-10-29'), ('python', '2026-10-29'), ('imported', '2026-10-29')]
+# 2. Adding the same URL twice through the API
+second POST of https://www.python.org -> HTTP 201
+{"id":3,"url":"https://www.python.org","title":"Python.org again","description":"The official home of the Python Programming Language","notes":"","web_archive_snapshot_url":"https://web.archive.org/web/20261029185030/htt
+# 3. A malformed URL through the API
+{"url":["Enter a valid URL."]}
+# 4. Deleting bookmark 6 through the API, then asking for it
+DELETE /api/bookmarks/6/ -> HTTP 204
+GET /api/bookmarks/6/ -> HTTP 404
+# 5. Final state
+bookmarks remaining: 5
+database size: 266240 bytes

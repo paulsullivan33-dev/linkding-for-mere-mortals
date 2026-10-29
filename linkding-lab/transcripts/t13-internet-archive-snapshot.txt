@@ -1,0 +1,18 @@
+# 1. Turn on the Internet Archive integration in the profile, add a bookmark, run the worker
+web_archive_integration options: [('disabled', 'Disabled'), ('enabled', 'Enabled')]
+POST update -> 200
+integration now: ('enabled',)
+added id 6 | snapshot url: https://web.archive.org/web/20261029185245/https://example.com
++ bookmarks.services.tasks._create_web_archive_snapshot_task
++ bookmarks.services.tasks._load_web_archive_snapshot_task
++ bookmarks.services.tasks._schedule_bookmarks_without_snapshots_task
++ bookmarks.services.tasks._process_html_snapshots_task
++ bookmarks.services.tasks._schedule_html_snapshots_task
+# 2. Ask the Wayback availability API whether a snapshot of example.com exists near now
+{"url": "example.com", "archived_snapshots": {"closest": {"status": "200", "available": true, "url": "http://web.archive.org/web/20261029153051/http://example.com/", "timestamp": "20261029153051"}}}
+# 3. The local snapshot route, from the shipped settings (bookmarks/settings/base.py):
+#    LD_ENABLE_SNAPSHOTS = os.getenv("LD_ENABLE_SNAPSHOTS", False) in (True, "True", "true", "1")
+#    LD_SINGLEFILE_PATH  = os.getenv("LD_SINGLEFILE_PATH", "single-file")
+#    LD_ASSET_FOLDER     = <install>/data/assets
+#    Local snapshots therefore need the single-file program (a headless
+#    Chromium driver), which this lab did not install: documented-only.

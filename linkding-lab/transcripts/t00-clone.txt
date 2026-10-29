@@ -1,0 +1,27 @@
+$ git clone --depth 1 https://github.com/sissbruecker/linkding.git src
+Cloning into 'src'...
+27b7303baf41bb28babc610ac8eaa486e1ddfab5 2026-09-13 Update CHANGELOG.md
+1.47.0
+CHANGELOG.md
+LICENSE.txt
+Makefile
+README.md
+SECURITY.md
+assets
+bookmarks
+bootstrap.sh
+docker
+docker-compose.yml
+docs
+install-linkding.sh
+manage.py
+package-lock.json
+package.json
+pyproject.toml
+pytest.ini
+scripts
+supervisord-all.conf
+supervisord-tasks.conf
+uv.lock
+uwsgi.ini
+version.txt

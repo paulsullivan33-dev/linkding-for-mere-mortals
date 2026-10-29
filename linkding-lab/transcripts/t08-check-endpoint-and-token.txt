@@ -1,0 +1,19 @@
+# 11. The check endpoint the browser calls when you paste a URL
+{"bookmark":{"id":2,"url":"http://127.0.0.1:8932/tides.html","title":"","description":"","notes":"","web_archive_snapshot_url":"https://web.archive.org/web/20261029184800/http://127.0.0.1:8932/tides.html","favicon_url":null,"preview_image_url":null,"is_archived":false,"unread":false,"shared":false,"tag_names":["reference"],"date_added":"2026-10-29T18:48:00.226853Z","date_modified":"2026-10-29T18:48:00.226857Z","website_title":null,"website_description":null},"metadata":{"url":"http://127.0.0.1:8932/tides.html","title":null,"description":null,"preview_image":null},"auto_tags":[]}
+# 12. Find the API token on the settings page
+GET /settings/general -> HTTP 200
+# 13. Same check against a public page (example.com)
+{"bookmark":null,"metadata":{"url":"https://example.com","title":"Example Domain","description":null,"preview_image":null},"auto_tags":[]}
+# 14. Why loopback is skipped - the loader code
+# 15. The integrations settings page holds the API token
+GET /settings/integrations -> HTTP 200
+400be66c5fb42f28904cda7766823118cd323cbb
+400be66c5fb42f28904cda7766823118cd323cbb
+name="csrfmiddlewaretoken"
+name="csrfmiddlewaretoken"
+# 16. Why: bookmarks/services/http_client.py (shipped source) states that all
+#     outbound requests to user-supplied URLs go through a guard that refuses
+#     addresses that are not publicly routable (loopback, private, link-local),
+#     as SSRF protection. LD_ALLOWED_INTERNAL_HOSTS can relax it. Public URLs
+#     scrape normally (example.com -> "Example Domain" above).
+# API token (from /settings/integrations, lab throwaway): 400be66c...3cbb

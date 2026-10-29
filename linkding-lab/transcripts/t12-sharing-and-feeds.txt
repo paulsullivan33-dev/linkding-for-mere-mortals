@@ -1,0 +1,32 @@
+# 1. Enable sharing + public sharing by submitting the complete settings form
+POST /settings/update -> 200
+profile sharing columns: {'enable_sharing': 0, 'enable_public_sharing': 0, 'default_mark_shared': 0}
+# 2. Share bookmark 3 (Python.org) through the API
+shared: True
+# 3. The shared page, WITHOUT any login
+GET /shared (anonymous) -> HTTP 404
+0
+<title>Page not found at /shared</title>
+# 4. The public shared RSS feed, anonymous
+GET /feeds/shared -> HTTP 200
+<title>Public shared bookmarks</title>
+# 5. The private all-bookmarks feed needs its token URL
+GET /feeds/<feed-token>/all -> HTTP 200
+GET /feeds/shared without shared bookmarks would still be public; private list without token -> HTTP 404
+# 6. Settings update needs the update_profile submit field (found in the view source)
+POST /settings/update (with update_profile) -> 200
+flags now (sharing, public): (1, 1)
+# 7. The shared page, anonymous, now that public sharing is on
+GET /shared (anonymous) -> HTTP 404
+0
+# 8. The public shared feed now carries the item
+<title>Public shared bookmarks</title>
+<title>Python.org</title>
+# 9. Logged-in shared view shows the same bookmark
+0
+# 10. The shared page lives at /bookmarks/shared
+GET /bookmarks/shared (logged in) -> HTTP 200
+1
+GET /bookmarks/shared (anonymous) -> HTTP 200
+1
+<title>Shared bookmarks - Linkding</title>
